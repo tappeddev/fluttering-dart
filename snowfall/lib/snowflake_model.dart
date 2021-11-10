@@ -42,7 +42,7 @@ class SnowflakeModel {
     if (_path != null) {
       return;
     }
-    double sideLength = 100;
+    double sideLength = 30;
 
     int iterationsTotal = 1;
     // we calculate the total number of iterations
