@@ -21,7 +21,7 @@ class ParticleBackgroundPage extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Positioned.fill(child: Container(color: Colors.lightBlue.shade900)),
-        Positioned.fill(child: Snowflakes(30)),
+        Positioned.fill(child: Snowflakes(20)),
         Positioned.fill(child: CenteredText()),
       ],
     );

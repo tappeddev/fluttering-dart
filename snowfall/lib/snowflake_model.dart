@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ class SnowflakeModel {
   Animatable? tween;
   double size = 0;
   AnimationProgress? animationProgress;
-  Math.Random random;
+  math.Random random;
   Path? _path;
 
   SnowflakeModel(this.random) {
@@ -34,7 +34,7 @@ class SnowflakeModel {
           curve: Curves.easeIn),
     ]);
     animationProgress = AnimationProgress(duration: duration, startTime: time);
-    size = 20 + random.nextDouble() * 100;
+    size = 20 + random.nextDouble() * 10;
     drawPath();
   }
 
@@ -42,24 +42,24 @@ class SnowflakeModel {
     if (_path != null) {
       return;
     }
-    double sideLength = 30;
+    double sideLength = 100;
 
     int iterationsTotal = 1;
     // we calculate the total number of iterations
     // based on the snowflake's size
-    if (size > 40) {
+
       iterationsTotal += (size) ~/ 25;
-    }
+
     _path = Path();
     if (cachedFlakes[iterationsTotal] == null) {
-      double down = (sideLength / 2) * Math.tan(Math.pi / 6);
-      double up = (sideLength / 2) * Math.tan(Math.pi / 3) - down;
+      double down = (sideLength / 2) * math.tan(math.pi / 6);
+      double up = (sideLength / 2) * math.tan(math.pi / 3) - down;
       Point p1 = Point(-sideLength / 2, down);
       Point p2 = Point(sideLength / 2, down);
       Point p3 = Point(0, -up);
       Point p4 = Point(0, 0);
       Point p5 = Point(0, 0);
-      double rot = random.nextDouble() * 2.28319;
+      double rot = random.nextDouble() * 6.28319;
       List<Point> lines = <Point>[p1, p2, p3];
       List<Point> tmpLines = <Point>[];
 
@@ -72,11 +72,11 @@ class SnowflakeModel {
           } else {
             p2 = lines[loop + 1];
           }
-          rot = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+          rot = math.atan2(p2.y - p1.y, p2.x - p1.x);
           p3 = p1 + Point.polar(sideLength, rot);
-          rot += Math.pi / 3;
+          rot += math.pi / 3;
           p4 = p3 + Point.polar(sideLength, rot);
-          rot -= 2 * Math.pi / 3;
+          rot -= 2 * math.pi / 3;
           p5 = p4 + Point.polar(sideLength, rot);
           tmpLines.add(p1);
           tmpLines.add(p3);

@@ -21,10 +21,10 @@ class _SnowflakesState extends State<Snowflakes> {
 
   @override
   void initState() {
+    super.initState();
     List.generate(widget.numberOfSnowflakes, (index) {
       flakes.add(SnowflakeModel(random));
     });
-    super.initState();
   }
 
   @override
