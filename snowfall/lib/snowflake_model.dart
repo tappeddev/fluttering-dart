@@ -59,7 +59,7 @@ class SnowflakeModel {
       Point p3 = Point(0, -up);
       Point p4 = Point(0, 0);
       Point p5 = Point(0, 0);
-      double rot = random.nextDouble() * 6.28319;
+      double rot = random.nextDouble() * 2.28319;
       List<Point> lines = <Point>[p1, p2, p3];
       List<Point> tmpLines = <Point>[];
 
