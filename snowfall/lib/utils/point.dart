@@ -1,11 +1,10 @@
 import 'dart:math' as Math;
 
-class Point  {
-
+class Point {
   num x = 0;
   num y = 0;
 
-  Point([this.x=0, this.y=0]);
+  Point([this.x = 0, this.y = 0]);
 
   Point add(Point p) {
     return Point(this.x + p.x, this.y + p.y);
@@ -16,7 +15,7 @@ class Point  {
   }
 
   num degreesTo(Point p) {
-    num dx = this.x = p.x; 
+    num dx = this.x = p.x;
     num dy = this.y = p.y;
     num angle = Math.atan2(dy, dx); // radians
     return angle * (180 / Math.pi); // degrees
@@ -34,7 +33,7 @@ class Point  {
 
   /// find point between points
   Point _interpolate(Point p, num f) {
-    return Point( p.x + (this.x - p.x) * f, p.y + (this.y - p.y) * f );
+    return Point(p.x + (this.x - p.x) * f, p.y + (this.y - p.y) * f);
   }
 
   num length() {
@@ -68,20 +67,21 @@ class Point  {
   }
 
   static Point pointsInterpolation(Point p1, Point p2, num f) {
-	  return p1._interpolate(p2, f);
+    return p1._interpolate(p2, f);
   }
+
   static Point polar(num l, num r) {
     return Point(l * Math.cos(r), l * Math.sin(r));
   }
+
   static num distance(Point p1, Point p2) {
     return p1._distance(p2);
   }
 
-  Point operator +(Point p) => Point(this.x+p.x, this.y+p.y);
+  Point operator +(Point p) => Point(this.x + p.x, this.y + p.y);
 
   bool operator ==(Object p) => this.hashCode == p.hashCode;
-  
+
   @override
   int get hashCode => this.x.hashCode + this.y.hashCode;
-
 }

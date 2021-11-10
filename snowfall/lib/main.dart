@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:snowfall/background.dart';
 import 'package:snowfall/snowflakes.dart';
 
 void main() => runApp(Snowfall());
@@ -15,12 +14,13 @@ class Snowfall extends StatelessWidget {
     );
   }
 }
+
 class ParticleBackgroundPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Positioned.fill(child: Background()),
+        Positioned.fill(child: Container(color: Colors.lightBlue.shade900)),
         Positioned.fill(child: Snowflakes(30)),
         Positioned.fill(child: CenteredText()),
       ],
@@ -30,7 +30,7 @@ class ParticleBackgroundPage extends StatelessWidget {
 
 class CenteredText extends StatelessWidget {
   const CenteredText({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

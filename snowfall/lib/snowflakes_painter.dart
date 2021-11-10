@@ -9,19 +9,16 @@ class SnowflakesPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-
     final Paint p = Paint()
       ..color = Colors.white.withAlpha(125)
       ..style = PaintingStyle.fill;
 
     snowflakes.forEach((snowflake) {
-        
-      var progress = snowflake.animationProgress.progress(time);
-      final animation = snowflake.tween.transform(progress);
+      var progress = snowflake.animationProgress!.progress(time);
+      final animation = snowflake.tween!.transform(progress);
       final position =
           Offset(animation["x"] * size.width, animation["y"] * size.height);
       canvas.drawPath(snowflake.path.shift(position), p);
-
     });
   }
 
